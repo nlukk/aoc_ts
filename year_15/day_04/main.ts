@@ -8,7 +8,7 @@ const key = await Deno.readTextFile("input");
 
 const untilStartsWith = (key: string, str: string, startWith = 1) => {
   for (let i = startWith; true; ++i) {
-    const hash = new Md5().update(key + i).toString();
+    const hash = new Md5().update(key + i).toString("hex");
     if (hash.startsWith(str)) {
       return i;
     }
